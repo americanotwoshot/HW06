@@ -2,7 +2,7 @@
 
 ATeleportingActor::ATeleportingActor()
 {
-	TimeToTeleport = 2.0f;
+	TimeToTeleport = FMath::FRandRange(2.0f, 4.0f);
 	StartLocation = FVector::ZeroVector;
 	TeleportLocationsFromStartLocation.Add(StartLocation);
 }

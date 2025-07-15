@@ -4,9 +4,9 @@ AMovingActor::AMovingActor()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	MoveSpeed = 500.0f;
+	MoveSpeed = FMath::RandRange(500.0f, 700.0f);
 	StartLocation = FVector::ZeroVector;
-	MaxRange = 1000.0f;
+	MaxRange = FMath::RandRange(700.0f, 1000.0f);
 }
 
 void AMovingActor::BeginPlay()
@@ -21,11 +21,11 @@ void AMovingActor::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 	FVector NewLocation = GetActorLocation();
-	NewLocation.X += MoveSpeed * DeltaTime;
+	NewLocation.Y += MoveSpeed * DeltaTime;
 	SetActorLocation(NewLocation);
 	if (FVector::Dist(NewLocation, StartLocation) > MaxRange)
 	{
-		StartLocation = NewLocation;
+		//StartLocation = NewLocation;
 		MoveSpeed *= -1.0f;
 	}
 }

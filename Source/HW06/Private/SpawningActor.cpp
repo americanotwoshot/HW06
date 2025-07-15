@@ -3,6 +3,7 @@
 #include "Kismet/GameplayStatics.h"
 
 ASpawningActor::ASpawningActor()
+	: SpawnCount(1)
 {
 }
 
@@ -12,7 +13,10 @@ void ASpawningActor::BeginPlay()
 
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), AActorToSpawn::StaticClass(), SpawnPoints);
 
-	SpawnActor();
+	for (int32 i = 0; i < SpawnCount; i++)
+	{
+		SpawnActor();
+	}
 }
 
 void ASpawningActor::SpawnActor()
@@ -23,7 +27,7 @@ void ASpawningActor::SpawnActor()
 	{
 		if (UWorld* World = GetWorld())
 		{
-			World->SpawnActor<AActor>(ActorToSpawn, SpawnLocation, FRotator::ZeroRotator);
+			World->SpawnActor<AActor>(ActorToSpawn, SpawnLocation, FRotator(0.0f, 90.0f, 0.0f));
 		}
 	}
 }

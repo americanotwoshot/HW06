@@ -2,8 +2,8 @@
 
 ADisappearingActor::ADisappearingActor()
 {
-	TimeToDisappear = 2.0f;
-	TimeToAppear = 2.0f;
+	TimeToDisappear = FMath::FRandRange(1.0f, 3.0f);
+	TimeToAppear = FMath::FRandRange(1.0f, 3.0f);
 }
 
 void ADisappearingActor::BeginPlay()

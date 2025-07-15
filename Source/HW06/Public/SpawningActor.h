@@ -16,6 +16,8 @@ public:
 	TArray<AActor*> SpawnPoints;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
 	TArray<TSubclassOf<AActor>> SpawnActors;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
+	int32 SpawnCount;
 	
 protected:
 	virtual void BeginPlay() override;

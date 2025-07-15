@@ -4,7 +4,7 @@ ARotatingActor::ARotatingActor()
 {
 	PrimaryActorTick.bCanEverTick = true;
 
-	RotationSpeed = 300.0f;
+	RotationSpeed = FMath::RandRange(300.0f, 500.0f);
 }
 
 void ARotatingActor::Tick(float DeltaTime)
